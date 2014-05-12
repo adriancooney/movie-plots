@@ -1,0 +1,1 @@
+require("fs").readdirSync(__dirname).forEach(function(e) { if(e.match(/\.js$/) && e !== "index.js") module.exports[e.replace(".js", "")] = require("./" + e); });

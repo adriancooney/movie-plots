@@ -1,0 +1,43 @@
+#!/usr/bin/env node
+
+var Wavie = require("../"),
+	fs = require("fs"),
+	args = require("optimist").argv;
+
+if(args.input && args.output) {
+
+	Wavie.collectData(args.input, args.frames || 300, "400x300").then(function(frames) {
+		process.stdout.write("[");
+
+		frames.on("frame", function(frame, stats) {
+			process.stdout.write(frame.frame % 10 == 0 ? frame.frame : ".");
+		});
+
+		frames.on("end", function(data) {
+			process.stdout.write("]\n");
+			console.log("Data collected. Writing to ", args.output);
+			fs.writeFile(args.output, JSON.stringify(data), function(err) {
+				if(err) console.log("Error writing file.", err);
+				else console.log("File written. " + data.frames.length + " collected.");
+			})
+		});
+
+		frames.on("error", function(err) {
+			console.log("\nError: ", err);
+		});
+	});
+
+} else help();
+
+function help() {
+	[
+		"analyze -- Analyze a movie and output frame color data",
+		"    --input  - The input movie file",
+		"    --output - The output location for the json file",
+		"    --frames - The frame count. Defaults to 300.",
+		"    --help   - Show this help",
+		"Example:",
+		"    analyze --input Game.of.Thrones.S01E04.mp4 --output got.json"
+	].forEach(function(v) { console.log(v); });
+}
+
