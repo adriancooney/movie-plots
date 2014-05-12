@@ -14,4 +14,4 @@ To generate run `node graphers/nodex/index.js`. Requires Node v0.11.7. This take
 The more the better. Submit a pull request and we'll add it to the data.
 
 ### The code
-The code is bad. I made terrible decisions multiple times in my 4:00am slumbers. At those times, these decisions seem good but when you come back the next day you think why would you. It's full of weird dependancy chains with different versions of things required. I'm sorry if you try to incorporate this thing into something else, I never mean't to cause such hurt (or release it).
+The code is bad. I made terrible decisions multiple times in my 4:00am slumbers. At those times, these decisions seem good but when you come back the next day you think why would you. It's full of weird dependancy chains with different versions of things required. I'm sorry if you try to incorporate this thing into something else, I never mean't to cause such hurt (or release it for that matter).
