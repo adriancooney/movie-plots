@@ -1,5 +1,5 @@
 # Movie plots
-Literal movie plotting. See the post [here]().
+Literal movie plotting. See the post [here](https://medium.com/p/8b8243f6f3f).
 
 ### Setup
 Clone the repo and do an `npm install`. Requires `node-canvas` to generate graphs which depends on `cairo`.
